@@ -6,7 +6,7 @@ import { Chats } from "./routes/Chats";
 import { Profile } from "./routes/Profile";
 import { store } from './store'
 
-store.dispatch
+
 export const Homework = () => {
   return (
     <Provider store={store} >

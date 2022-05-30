@@ -3,6 +3,7 @@ import {ADD_MESSAGE, REMOVE_MESSAGES_BY_CHAT_ID} from "./actions";
 
 const initialState = {
   messages: {},
+  sendMessageTimerID: undefined,
 }
 
 export const messagesReducer = (state = initialState, action) => {

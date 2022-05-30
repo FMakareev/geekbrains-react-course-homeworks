@@ -4,6 +4,7 @@ import { AppBar, Toolbar, Button } from "@material-ui/core";
 import { Home } from "./routes/Home";
 import { Chats } from "./routes/Chats";
 import { Profile } from "./routes/Profile";
+import {Messages} from "./routes/Messages";
 
 export const Homework = () => {
   return (
@@ -23,7 +24,13 @@ export const Homework = () => {
           </Toolbar>
         </AppBar>
         <Switch>
-          <Route component={Chats} path="/chats" />
+          <Route path="/chats" >
+            <Chats>
+              <Switch>
+                <Route component={Messages} path="/chats/:chatId" />
+              </Switch>
+            </Chats>
+          </Route>
           <Route component={Profile} path="/profile" />
           <Route component={Home} path="/" />
         </Switch>

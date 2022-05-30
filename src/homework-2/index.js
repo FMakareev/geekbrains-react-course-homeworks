@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Message} from "./components";
 
 export const Homework = () => {
   const [messageList, setMessageList] = useState([]);
@@ -8,7 +9,7 @@ export const Homework = () => {
     const newMessageList = [...messageList];
     const newMessage = {
       author,
-      text
+      text,
     };
     newMessageList.push(newMessage);
     setMessageList(newMessageList);
@@ -39,7 +40,9 @@ export const Homework = () => {
     }
 
     sendMessage("bot", "hello");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messageList]);
+
 
   return (
     <div>
@@ -53,11 +56,11 @@ export const Homework = () => {
         <button>send</button>
       </form>
       <ul>
-        {messageList.map((item, index) => (
-          <li key={index}>
-            {item.author} - {item.text}
-          </li>
-        ))}
+        {
+          messageList.map((item, index) => (
+            <Message message={item.text} key={item.text} />
+          ))
+        }
       </ul>
     </div>
   );

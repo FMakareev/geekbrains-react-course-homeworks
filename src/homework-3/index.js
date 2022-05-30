@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { ChatList } from "./components/ChatList";
 import { MessageInput } from "./components/MessageInput";
-import { MessageList } from "./components/MessageList";
+import { MessageList } from "./components/MessageList/MessageList";
+import {useSelectableList} from "./hooks/useSelectableList/useSelectableList";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -12,6 +13,7 @@ const useStyles = makeStyles({
 });
 
 export const Homework = () => {
+  useSelectableList()
   const classes = useStyles();
   const [messageList, setMessageList] = useState([]);
 
@@ -19,7 +21,8 @@ export const Homework = () => {
     const newMessageList = [...messageList];
     const newMessage = {
       author,
-      text
+      text,
+      id: Date.now(),
     };
     newMessageList.push(newMessage);
     setMessageList(newMessageList);
@@ -52,15 +55,15 @@ export const Homework = () => {
           },
           {
             name: "name",
-            id: "1"
+            id: "2"
           },
           {
             name: "name",
-            id: "1"
+            id: "3"
           },
           {
             name: "name",
-            id: "1"
+            id: "4"
           }
         ]}
       />

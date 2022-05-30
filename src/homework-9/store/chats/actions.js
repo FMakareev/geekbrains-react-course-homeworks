@@ -21,9 +21,9 @@ export const removeChat = (chatId) => ({
 })
 
 
-export const removeChatWithThunk = (chatId) => (dispatch) => {
-  chatsRef.child(chatId).remove(() => {
-    dispatch(removeChat(chatId))
+export const removeChatWithThunk = (chatId) => () => {
+  chatsRef.child(chatId).remove((error) => {
+
   });
 }
 

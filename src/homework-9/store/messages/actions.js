@@ -20,7 +20,7 @@ export const removeMessagesByChatID = (chatId) => ({
 
 export const removeMessagesByChatIDWithThunk = (chatId) => (dispatch) =>{
   messagesRef.child(chatId).remove(() => {
-    dispatch(removeMessagesByChatID(chatId));
+    // dispatch(removeMessagesByChatID(chatId));
   })
 }
 
